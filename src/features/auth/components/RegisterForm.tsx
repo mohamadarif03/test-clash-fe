@@ -1,6 +1,53 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerWithEmailAndPassword } from '../api/auth';
+import type { RegisterInput } from '../types';
+import axios from 'axios';
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<RegisterInput>({
+    name: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id === 'confirm-password' ? 'confirm_password' : e.target.id]: e.target.value,
+    });
+    setError(null);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setIsLoading(true);
+
+    if (formData.password !== formData.confirm_password) {
+        setError('Password dan Konfirmasi Password tidak cocok');
+        setIsLoading(false);
+        return;
+    }
+
+    try {
+      await registerWithEmailAndPassword(formData);
+      navigate('/login');
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        setError(err.response.data.error || 'Terjadi kesalahan saat mendaftar');
+      } else {
+        setError('Terjadi kesalahan yang tidak terduga');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="flex w-full lg:w-1/2 flex-col bg-white overflow-y-auto h-full">
       <div className="flex-1 flex flex-col justify-center items-center px-4 py-4 sm:px-8 lg:px-12 xl:px-16">
@@ -15,8 +62,15 @@ export const RegisterForm = () => {
             <p className="text-slate-500 text-xs">Mulai perjalanan belajarmu sekarang.</p>
           </div>
 
+          {/* Error Message */}
+          {error && (
+            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm mb-4 border border-red-200">
+              {error}
+            </div>
+          )}
+
           {/* Form */}
-          <form className="flex flex-col gap-3">
+          <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
             {/* Name Field */}
             <div className="flex flex-col gap-1">
               <label htmlFor="name" className="text-[#181211] text-xs font-medium leading-normal">Nama Lengkap</label>
@@ -26,7 +80,9 @@ export const RegisterForm = () => {
                   type="text" 
                   placeholder="Masukkan nama lengkap" 
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-[#181211] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white focus:border-primary h-9 placeholder:text-slate-400 px-3 text-sm font-normal transition-all shadow-sm"
-                  defaultValue=""
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -40,7 +96,9 @@ export const RegisterForm = () => {
                   type="email" 
                   placeholder="Masukkan email Anda" 
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-[#181211] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white focus:border-primary h-9 placeholder:text-slate-400 px-3 text-sm font-normal transition-all shadow-sm"
-                  defaultValue=""
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -54,7 +112,9 @@ export const RegisterForm = () => {
                   type="password" 
                   placeholder="••••••••" 
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-[#181211] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white focus:border-primary h-9 placeholder:text-slate-400 px-3 text-sm font-normal transition-all shadow-sm"
-                  defaultValue=""
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -68,17 +128,20 @@ export const RegisterForm = () => {
                   type="password" 
                   placeholder="••••••••" 
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-[#181211] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white focus:border-primary h-9 placeholder:text-slate-400 px-3 text-sm font-normal transition-all shadow-sm"
-                  defaultValue=""
+                  value={formData.confirm_password}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
 
             {/* Submit Button */}
             <button 
-              type="button" 
-              className="mt-2 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-md h-9 px-4 bg-primary hover:bg-primary-hover text-white text-sm font-bold tracking-wide transition-all shadow-md hover:shadow-lg focus:ring-4 focus:ring-primary/30"
+              type="submit" 
+              disabled={isLoading}
+              className="mt-2 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-md h-9 px-4 bg-primary hover:bg-primary-hover text-white text-sm font-bold tracking-wide transition-all shadow-md hover:shadow-lg focus:ring-4 focus:ring-primary/30 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Daftar Sekarang
+              {isLoading ? 'Mendaftar...' : 'Daftar Sekarang'}
             </button>
 
             {/* Divider */}
