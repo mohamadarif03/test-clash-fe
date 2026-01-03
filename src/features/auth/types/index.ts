@@ -16,6 +16,7 @@ export type User = {
   email: string;
   role: string;
   rank_tier: string;
+  avatar?: string;
 };
 
 export type RegisterResponse = {
@@ -24,7 +25,9 @@ export type RegisterResponse = {
 };
 
 export type LoginResponse = {
+  message: string;
   token: string;
+  user: User;
 };
 
 export type AuthError = {

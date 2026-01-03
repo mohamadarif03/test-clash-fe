@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../../../stores/useAuthStore';
 import { loginWithEmailAndPassword } from '../api/auth';
 import type { LoginInput } from '../types';
 import axios from 'axios';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const { setAuth } = useAuthStore();
   const [formData, setFormData] = useState<LoginInput>({
     email: '',
     password: '',
@@ -28,7 +30,7 @@ export const LoginForm = () => {
 
     try {
       const response = await loginWithEmailAndPassword(formData);
-      localStorage.setItem('token', response.token);
+      setAuth(response.user, response.token);
       navigate('/dashboard');
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) {

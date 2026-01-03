@@ -37,11 +37,11 @@ export const DashboardSidebar = () => {
       
       <nav className="flex-1 px-4 flex flex-col gap-2 mt-4">
         <SidebarLink href="#" icon="dashboard" label="Dashboard" isActive={true} />
-        <SidebarLink href="#" icon="group" label="Users" />
-        <SidebarLink href="#" icon="sports_esports" label="Battles" />
-        <SidebarLink href="#" icon="quiz" label="Questions" />
-        <SidebarLink href="#" icon="analytics" label="Reports" />
-        <SidebarLink href="#" icon="settings" label="Settings" />
+        <SidebarLink href="#" icon="group" label="Pengguna" />
+        <SidebarLink href="#" icon="sports_esports" label="Pertandingan" />
+        <SidebarLink href="#" icon="quiz" label="Bank Soal" />
+        <SidebarLink href="#" icon="analytics" label="Laporan" />
+        <SidebarLink href="#" icon="settings" label="Pengaturan" />
       </nav>
       
       <div className="p-4 border-t border-white/10">
@@ -53,7 +53,7 @@ export const DashboardSidebar = () => {
           ></div>
           <div className="flex flex-col overflow-hidden">
             <p className="text-sm font-semibold truncate">Alexander G.</p>
-            <p className="text-blue-200 text-xs truncate">Super Admin</p>
+            <p className="text-blue-200 text-xs truncate">Admin Super</p>
           </div>
           <button className="ml-auto text-blue-200 hover:text-white">
             <span className="material-symbols-outlined text-[20px]">logout</span>

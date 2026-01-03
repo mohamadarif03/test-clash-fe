@@ -41,7 +41,7 @@ export const HeroSection = () => {
                     <div className="flex flex-col gap-6 lg:w-1/2 text-center lg:text-left">
                         <div className="flex flex-col gap-4">
                             <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100 text-xs font-bold uppercase tracking-wider w-fit mx-auto lg:mx-0">
-                                #1 Gamified Learning Platform
+                                #1 Platform Belajar Gamifikasi
                             </span>
                             <h1 className="text-slate-900 text-4xl font-black leading-[1.1] tracking-[-0.033em] md:text-5xl lg:text-6xl">
                                 Stop Belajar Sendirian. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-royal-blue-end">Saatnya Push Rank</span> Menuju PTN!
@@ -173,7 +173,7 @@ export const ShowcaseSection = () => {
                             <span className="material-symbols-outlined">leaderboard</span>
                         </div>
                         <h2 className="text-slate-900 text-3xl md:text-4xl font-black leading-tight">
-                            Leaderboard Tier List
+                            Daftar Peringkat & Tier
                         </h2>
                         <p className="text-slate-500 text-lg leading-relaxed">
                             Buktikan kemampuanmu! Cek peringkat secara global, regional, atau antar sekolah. Sistem Tier dari Bronze hingga Mythic membuatmu termotivasi untuk terus push rank akademik.
@@ -181,7 +181,7 @@ export const ShowcaseSection = () => {
                         <div className="flex flex-col gap-3">
                             <div className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-green-500">check_circle</span>
-                                <span className="text-slate-900 font-medium">Global Ranking Real-time</span>
+                                <span className="text-slate-900 font-medium">Peringkat Global Real-time</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-green-500">check_circle</span>
@@ -204,7 +204,7 @@ export const ShowcaseSection = () => {
                             <span className="material-symbols-outlined">timer</span>
                         </div>
                         <h2 className="text-slate-900 text-3xl md:text-4xl font-black leading-tight">
-                            Study Material &amp; Pomodoro
+                            Materi Belajar &amp; Pomodoro
                         </h2>
                         <p className="text-slate-500 text-lg leading-relaxed">
                             Materi belajar lengkap yang terintegrasi langsung dengan Pomodoro Timer. Fokus belajar 25 menit, istirahat 5 menit, tanpa gangguan. Dapatkan bonus item game setiap sesi fokus selesai!
@@ -291,7 +291,7 @@ export const FooterSection = () => {
                             Gabung Gratis
                         </button>
                         <button className="flex h-14 px-10 cursor-pointer items-center justify-center rounded-full bg-transparent border-2 border-white/30 hover:bg-white/10 text-white text-lg font-bold transition-colors">
-                            Download App
+                            Unduh Aplikasi
                         </button>
                     </div>
                     <div className="mt-8 text-blue-100 text-sm font-medium">
@@ -354,7 +354,7 @@ export const FooterSection = () => {
                         </div>
                     </div>
                     <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-sm text-slate-500">© 2026 Test-Clash Indonesia. All rights reserved.</p>
+                        <p className="text-sm text-slate-500">© 2026 Test-Clash Indonesia. Hak cipta dilindungi.</p>
                         <div className="flex gap-6 text-sm text-slate-500">
                             <a className="hover:text-white" href="#">Privasi</a>
                             <a className="hover:text-white" href="#">Syarat</a>

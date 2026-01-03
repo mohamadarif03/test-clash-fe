@@ -63,7 +63,7 @@ export const DashboardStats = () => {
                 variant="blue"
                 trend="up" 
                 trendValue="12%" 
-                label="Total Users" 
+                label="Total Pengguna" 
                 value="12,450" 
             />
              <StatCard 
@@ -71,7 +71,7 @@ export const DashboardStats = () => {
                 variant="orange"
                 trend="up" 
                 trendValue="5%" 
-                label="Active Battles" 
+                label="Pertandingan Aktif" 
                 value="843" 
             />
              <StatCard 
@@ -79,15 +79,15 @@ export const DashboardStats = () => {
                 variant="red"
                 trend="down" 
                 trendValue="2%" 
-                label="New Reports" 
+                label="Laporan Baru" 
                 value="24" 
             />
              <StatCard 
                 icon="dns" 
                 variant="emerald"
                 trend="check" 
-                trendValue="Good" 
-                label="Server Status" 
+                trendValue="Stabil" 
+                label="Status Server" 
                 value="99.9%" 
             />
         </div>

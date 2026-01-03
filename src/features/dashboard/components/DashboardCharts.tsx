@@ -6,12 +6,12 @@ export const DashboardCharts = () => {
             <div className="lg:col-span-2 bg-white rounded-xl shadow-card p-6">
                 <div className="flex items-center justify-between mb-6">
                     <div>
-                        <h3 className="text-lg font-bold text-gray-900">Daily Active Users</h3>
-                        <p className="text-sm text-gray-500">Engagement performance over last 30 days</p>
+                        <h3 className="text-lg font-bold text-gray-900">Pengguna Aktif Harian</h3>
+                        <p className="text-sm text-gray-500">Performa interaksi 30 hari terakhir</p>
                     </div>
                     <button className="flex items-center gap-2 text-sm font-medium text-primary bg-blue-50 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition-colors">
                         <span className="material-symbols-outlined text-[18px]">calendar_today</span>
-                        Last 30 Days
+                        30 Hari Terakhir
                     </button>
                 </div>
                 <div className="relative h-64 w-full">
@@ -39,23 +39,23 @@ export const DashboardCharts = () => {
                     </svg>
                     {/* Tooltip mockup */}
                     <div className="absolute top-[10%] right-[10%] bg-gray-900 text-white text-xs py-1 px-2 rounded shadow-lg pointer-events-none">
-                        8,204 Users
+                        8,204 Pengguna
                     </div>
                 </div>
                 <div className="flex justify-between text-xs text-gray-400 mt-4 px-2">
-                    <span>Nov 1</span>
-                    <span>Nov 5</span>
-                    <span>Nov 10</span>
-                    <span>Nov 15</span>
-                    <span>Nov 20</span>
-                    <span>Nov 25</span>
-                    <span>Nov 30</span>
+                    <span>1 Nov</span>
+                    <span>5 Nov</span>
+                    <span>10 Nov</span>
+                    <span>15 Nov</span>
+                    <span>20 Nov</span>
+                    <span>25 Nov</span>
+                    <span>30 Nov</span>
                 </div>
             </div>
             
             {/* Secondary Stats / Breakdown */}
             <div className="bg-white rounded-xl shadow-card p-6 flex flex-col">
-                <h3 className="text-lg font-bold text-gray-900 mb-6">Device Breakdown</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-6">Distribusi Perangkat</h3>
                 <div className="flex-1 flex flex-col justify-center gap-6">
                     {/* Item 1 */}
                     <div className="flex items-center gap-4">
@@ -64,7 +64,7 @@ export const DashboardCharts = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-700">Mobile App</span>
+                                <span className="text-sm font-medium text-gray-700">Aplikasi Mobile</span>
                                 <span className="text-sm font-bold text-gray-900">65%</span>
                             </div>
                             <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
@@ -79,7 +79,7 @@ export const DashboardCharts = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-700">Desktop Web</span>
+                                <span className="text-sm font-medium text-gray-700">Web Desktop</span>
                                 <span className="text-sm font-bold text-gray-900">25%</span>
                             </div>
                             <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
