@@ -1,4 +1,7 @@
 
+
+import { Link } from 'react-router-dom';
+
 export const LandingNavbar = () => {
     return (
         <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 bg-white/80 backdrop-blur-md px-4 py-3 md:px-10 lg:px-40">
@@ -14,14 +17,16 @@ export const LandingNavbar = () => {
                 <a className="text-slate-700 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#showcase">Aplikasi</a>
             </div>
             <div className="flex gap-3">
-                <a href="/login">
+                <Link to="/login">
                 <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-transparent hover:bg-slate-100 text-slate-700 text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
-                    <span className="truncate">Login</span>
+                    <span className="truncate">Masuk</span>
                 </button>
-                </a>
+                </Link>
+                <Link to="/register">
                 <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary hover:bg-primary-hover text-white text-sm font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30 transition-all hover:scale-105">
                     <span className="truncate">Daftar Sekarang</span>
                 </button>
+                </Link>
             </div>
         </header>
 
