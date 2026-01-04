@@ -11,7 +11,7 @@ const DashboardPage = () => {
             <DashboardSidebar />
 
             {/* Main Content */}
-            <main className="flex-1 lg:ml-72 flex flex-col h-screen overflow-y-auto bg-slate-50">
+            <main className="flex-1 lg:ml-72 flex flex-col h-screen overflow-y-auto bg-slate-50 relative">
                 {/* Header */}
                 <DashboardHeader />
 
