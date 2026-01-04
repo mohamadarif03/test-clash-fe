@@ -6,6 +6,7 @@ import { DashboardHeader } from './DashboardHeader';
 type SubTest = {
   id: string;
   name: string;
+  category: string; // Added category
   code: string;
   questionsCount: number;
   iconUrl: string;
@@ -14,9 +15,11 @@ type SubTest = {
 
 // Placeholder Data
 const MOCK_SUBTESTS: SubTest[] = [
+  // Tes Potensi Skolastik (TPS)
   {
     id: '1',
     name: 'Penalaran Umum',
+    category: 'Tes Potensi Skolastik (TPS)',
     code: 'PU-01',
     questionsCount: 12,
     iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDrVH0BB-3FhFi4R-8SR5xptktXB6391SNf2whKfxtDHyqVNrg7W8FgDA0CzFC5s-GvOm87xamdBM0O3BtxERgn1NxKBTKbRjWRMlKjMClKYe7DIMj6Pl7WHJFq1hYM8fHNNgcRijj5hXx9Ba0qi4fbQ3bUbeQS33V8WvghgaC-OJ_qsqRta1fuepXpFMRlo5JIPfoo72w7Aq5l0cnhKj4zEyAnhHJ3CZsw6A2m-ZXezvkxFK3m9waKNOLusnFLHYoFKMt4yu1VB2ry',
@@ -24,11 +27,58 @@ const MOCK_SUBTESTS: SubTest[] = [
   },
   {
     id: '2',
-    name: 'Pengetahuan Kuantitatif',
-    code: 'PK-02',
+    name: 'Pengetahuan & Pemahaman Umum',
+    category: 'Tes Potensi Skolastik (TPS)',
+    code: 'PPU-02',
+    questionsCount: 15,
+    iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr',
+    bgColor: 'bg-green-50'
+  },
+  {
+    id: '3',
+    name: 'Pemahaman Bacaan & Menulis',
+    category: 'Tes Potensi Skolastik (TPS)',
+    code: 'PBM-03',
     questionsCount: 20,
+    iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr', // Placeholder icon
+    bgColor: 'bg-purple-50'
+  },
+  {
+    id: '4',
+    name: 'Pengetahuan Kuantitatif',
+    category: 'Tes Potensi Skolastik (TPS)',
+    code: 'PK-04',
+    questionsCount: 15,
     iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr',
     bgColor: 'bg-orange-50'
+  },
+  // Tes Literasi
+  {
+    id: '5',
+    name: 'Literasi Bahasa Indonesia',
+    category: 'Tes Literasi',
+    code: 'LBI-05',
+    questionsCount: 30,
+    iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr', // Placeholder icon
+    bgColor: 'bg-red-50'
+  },
+  {
+    id: '6',
+    name: 'Literasi Bahasa Inggris',
+    category: 'Tes Literasi',
+    code: 'LBI-06',
+    questionsCount: 20,
+    iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr', // Placeholder icon
+    bgColor: 'bg-indigo-50'
+  },
+  {
+    id: '7',
+    name: 'Penalaran Matematika',
+    category: 'Tes Literasi',
+    code: 'PM-07',
+    questionsCount: 20,
+    iconUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVJVupKrx3CC3TnSmFCGA437q2WzGNX68vk091ePpw5lKM4XubdRVzNDijT-4sre5rnIX8sistEyehCWUH00-c5gv6ywhAUN1Bq1I5ctXwxWluEiOjJsPB4_AaVJ15j4l6lCNN6V7rN202AMABVHrT_J5IBcRpg6U0r6TuHvvSOJtnOGmUJCG04R5IhYYadzFBRcLV56nmSLeg6QgbY4N9Kzjf47oRpLoZ7pi6w03mm4-6ifsy3CxEfwAxwANthh-cPcNAxME1c8Cr', // Placeholder icon
+    bgColor: 'bg-cyan-50'
   }
 ];
 
@@ -59,38 +109,35 @@ export const DashboardSubtests = () => {
                         </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {MOCK_SUBTESTS.map((subtest) => (
-                            <div key={subtest.id} className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-primary/30 hover:shadow-soft transition-all duration-300 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
-                                    <button className="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white flex items-center justify-center transition-colors cursor-pointer">
-                                        <span className="material-symbols-outlined text-[18px]">edit</span>
-                                    </button>
-                                    <button className="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-colors cursor-pointer">
-                                        <span className="material-symbols-outlined text-[18px]">delete</span>
-                                    </button>
-                                </div>
-                                <div className={`w-16 h-16 mb-4 rounded-2xl ${subtest.bgColor} flex items-center justify-center shadow-inner`}>
-                                    <img className="w-10 h-10 object-contain drop-shadow-md" src={subtest.iconUrl} alt={subtest.name} />
-                                </div>
-                                <h3 className="text-lg font-bold text-slate-900 mb-1">{subtest.name}</h3>
-                                <div className="flex items-center justify-between mt-2">
-                                    <span className="px-3 py-1 rounded-full bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wide">{subtest.code}</span>
-                                    <span className="text-xs text-slate-500">{subtest.questionsCount} Soal</span>
+                    <div className="flex flex-col gap-10">
+                        {['Tes Potensi Skolastik (TPS)', 'Tes Literasi'].map((category) => (
+                            <div key={category} className="flex flex-col gap-4">
+                                <h2 className="text-lg font-bold text-slate-800 border-b border-slate-200 pb-2">{category}</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                                    {MOCK_SUBTESTS.filter(st => st.category === category).map((subtest) => (
+                                        <div key={subtest.id} className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-primary/30 hover:shadow-soft transition-all duration-300 relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-4 flex gap-2">
+                                                <button className="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white flex items-center justify-center transition-colors cursor-pointer">
+                                                    <span className="material-symbols-outlined text-[18px]">edit</span>
+                                                </button>
+                                                <button className="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-colors cursor-pointer">
+                                                    <span className="material-symbols-outlined text-[18px]">delete</span>
+                                                </button>
+                                            </div>
+                                            <div className={`w-16 h-16 mb-4 rounded-2xl ${subtest.bgColor} flex items-center justify-center shadow-inner`}>
+                                                <img className="w-10 h-10 object-contain drop-shadow-md" src={subtest.iconUrl} alt={subtest.name} />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-slate-900 mb-1">{subtest.name}</h3>
+                                            <div className="flex items-center justify-between mt-2">
+                                                <span className="px-3 py-1 rounded-full bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wide">{subtest.code}</span>
+                                                <span className="text-xs text-slate-500">{subtest.questionsCount} Soal</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    {/* Add New Placeholder Card (Only show in TPS section or handle logic generically, but typically handled separate or at bottom. Placing at bottom of each category for now if relevant, or just once. Let's place it at the end of the last category or in a specific way. For now, let's just list cards.) */}
                                 </div>
                             </div>
                         ))}
-
-                         {/* Add New Placeholder Card */}
-                        <button 
-                            onClick={() => setIsFormatModalOpen(true)}
-                            className="group flex flex-col items-center justify-center bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl p-6 hover:border-primary hover:bg-white transition-all duration-300 min-h-[220px] cursor-pointer"
-                        >
-                            <div className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 mb-4">
-                                <span className="material-symbols-outlined text-primary text-3xl">add</span>
-                            </div>
-                            <span className="text-base font-bold text-slate-900 group-hover:text-primary transition-colors">Tambah Baru</span>
-                        </button>
                     </div>
                 </div>
 
@@ -115,6 +162,19 @@ export const DashboardSubtests = () => {
                             {/* Modal Content */}
                             <div className="p-6 flex flex-col gap-5 overflow-y-auto">
                                 <div className="space-y-5">
+                                    <label className="block">
+                                        <span className="text-sm font-semibold text-slate-900 mb-2 block">Kategori</span>
+                                        <div className="relative">
+                                            <select className="w-full h-10 px-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium appearance-none cursor-pointer">
+                                                <option value="" disabled selected>Pilih Kategori...</option>
+                                                <option value="tps">Tes Potensi Skolastik (TPS)</option>
+                                                <option value="literasi">Tes Literasi</option>
+                                            </select>
+                                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                                <span className="material-symbols-outlined">expand_more</span>
+                                            </div>
+                                        </div>
+                                    </label>
                                     <label className="block">
                                         <span className="text-sm font-semibold text-slate-900 mb-2 block">Nama SubTest</span>
                                         <input className="w-full h-10 px-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium" placeholder="Contoh: Penalaran Umum" type="text"/>

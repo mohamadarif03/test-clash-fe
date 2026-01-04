@@ -4,11 +4,13 @@ import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import DashboardPage from '../pages/DashboardPage';
 import { DashboardMaterials } from '../features/dashboard/components/DashboardMaterials';
+import { DashboardMaterialsForm } from '../features/dashboard/components/DashboardMaterialsForm';
 import { DashboardUsers } from '../features/dashboard/components/DashboardUsers';
 import { DashboardSubtests } from '../features/dashboard/components/DashboardSubtests';
 import { DashboardQuestions } from '../features/dashboard/components/DashboardQuestions';
 import { DashboardTryouts } from '../features/dashboard/components/DashboardTryouts';
 import { DashboardReports } from '../features/dashboard/components/DashboardReports';
+import { DashboardQuestionsForm } from '../features/dashboard/components/DashboardQuestionsForm';
 
 import { ProtectedRoute } from './ProtectedRoute';
 
@@ -22,9 +24,11 @@ export const AppRoutes = () => {
             <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/dashboard/materials" element={<DashboardMaterials />} />
+                <Route path="/dashboard/materials/create" element={<DashboardMaterialsForm />} />
                 <Route path="/dashboard/users" element={<DashboardUsers />} />
                 <Route path="/dashboard/subtests" element={<DashboardSubtests />} />
                 <Route path="/dashboard/questions" element={<DashboardQuestions />} />
+                <Route path="/dashboard/questions/create" element={<DashboardQuestionsForm />} />
                 <Route path="/dashboard/tryouts" element={<DashboardTryouts />} />
                 <Route path="/dashboard/reports" element={<DashboardReports />} />
             </Route>
